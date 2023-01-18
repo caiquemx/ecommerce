@@ -5,14 +5,15 @@
 
 main {
   display: grid;
-  gap: 50px;
+  gap: 150px;
+  grid-row-end: 3;
   justify-content: center;
-  grid-row-end: 2;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .inputSection {
   margin: auto;
-  display: inline;
 }
 
 .searchInput {
@@ -37,12 +38,20 @@ main {
 }
 
 .categories div:hover {
+  cursor: pointer;
   background-color: white;
   transition: 0.7s;
-  cursor: pointer;
 }
 
 .categories p {
   margin: auto;
   text-align: center;
+}
+
+.freeShippingProductsSection {
+  display: grid;
+  gap: 10px;
+  max-width: 1200px;
+  height: auto;
+  overflow: auto;
 }

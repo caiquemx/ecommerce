@@ -42,7 +42,6 @@ export default function HomePage() {
           if (p.shipping.free_shipping)
             return (
               <ProductCard
-                key={p.id}
                 thumb={p.thumbnail}
                 title={p.title}
                 price={p.price}

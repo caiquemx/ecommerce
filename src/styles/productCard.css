@@ -1,0 +1,51 @@
+.productCard {
+  border-left: 2px antiquewhite solid;
+  border-right: 2px antiquewhite solid;
+  border-radius: 40px;
+  display: grid;
+  font-size: 14px;
+  gap: 10px;
+  grid-row-end: 1;
+  height: 400px;
+  justify-content: center;
+  margin-top: 10px;
+  text-align: left;
+  width: 290px;
+}
+
+.productCard:hover {
+  transform: translateY(-5px);
+}
+
+.productCard img {
+  margin: auto;
+  height: 150px;
+  width: 150px;
+}
+
+.productCard span {
+  align-self: center;
+  background-color: antiquewhite;
+  border-radius: 40px 40px 0px 0px;
+  font-size: 16px;
+  grid-row: 1;
+  padding: 20px 0px;
+  top: 0px;
+  text-align: center;
+}
+
+.price {
+  text-decoration: line-through;
+}
+
+.productCard h2 {
+  background-color: antiquewhite;
+  border-radius: 0 0 40px 40px;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+}
+
+.productCard h2:hover {
+  cursor: pointer;
+}
