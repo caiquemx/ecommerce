@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: grid;
+  gap: 50px;
+  justify-content: center;
+  grid-row-end: 2;
+}
+
+.inputSection {
+  margin: auto;
+  display: inline;
+}
+
+.searchInput {
+  width: 500px;
+}
+
+.categories {
+  display: grid;
+  gap: 10px;
+  max-width: 1130px;
+  overflow: auto;
+}
+
+.categories div {
+  background-color: #e1e1e1;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: grid;
+  grid-row-end: 1;
+  height: 100px;
+  width: 100px;
+}
+
+.categories div:hover {
+  background-color: white;
+  transition: 0.7s;
+  cursor: pointer;
+}
+
+.categories p {
+  margin: auto;
+  text-align: center;
+}
