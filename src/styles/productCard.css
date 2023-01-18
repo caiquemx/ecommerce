@@ -32,6 +32,19 @@
   padding: 20px 0px;
   top: 0px;
   text-align: center;
+  min-height: 20px;
+}
+
+.productCard h3 {
+  overflow: auto;
+}
+
+.productCard h3::-webkit-scrollbar {
+  width: 5px;
+}
+
+.productCard h3::-webkit-scrollbar-thumb {
+  background-color: black;
 }
 
 .price {

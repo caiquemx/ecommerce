@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 
-import {getCategories, getProducts} from '../../utils/api';
+import {getCategories, getProducts, getProductsByCategories} from '../../utils/api';
 import ProductCard from '../cards/ProductCard';
 import '../../styles/homePage.css';
 
 export default function HomePage() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+  const [shipping, setShipping] = useState(true);
 
   useEffect(() => {
     const fetch = async () => {
@@ -17,6 +18,16 @@ export default function HomePage() {
     };
     fetch();
   }, []);
+
+  const handleClick = async ({target}) => {
+    const data = await getProductsByCategories(target.id);
+    console.log('hello', target.id);
+    setShipping(false);
+    setProducts(data);
+  };
+
+  console.log(shipping);
+  console.log(products);
 
   return (
     <main>
@@ -31,17 +42,35 @@ export default function HomePage() {
       <section id="categoriesSection">
         <div className="categories">
           {categories.map(({id, name}) => (
-            <div>
-              <p key={id}>{name}</p>
-            </div>
+            <label htmlFor={id}>
+              <p
+                id={id}
+                onClick={handleClick}
+                key={id}
+              >
+                {name}
+              </p>
+            </label>
           ))}
         </div>
       </section>
       <section className="freeShippingProductsSection">
         {products.map((p) => {
-          if (p.shipping.free_shipping)
+          if (shipping) {
+            if (p.shipping.free_shipping)
+              return (
+                <ProductCard
+                  shipping={p.shipping.free_shipping}
+                  thumb={p.thumbnail}
+                  title={p.title}
+                  price={p.price}
+                />
+              );
+          }
+          if (!shipping)
             return (
               <ProductCard
+                shipping={p.shipping.free_shipping}
                 thumb={p.thumbnail}
                 title={p.title}
                 price={p.price}

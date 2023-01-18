@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/productCard.css';
 
-export default function ProductCard({title, thumb, price}) {
+export default function ProductCard({title, thumb, price, shipping}) {
   return (
     <div className="productCard">
       <img
@@ -11,7 +11,7 @@ export default function ProductCard({title, thumb, price}) {
       <h3>{title}</h3>
       <p className="price">{`FROM: ${(price + price * 0.1).toFixed(2)}`}</p>
       <p>{`TO: ${price.toFixed(2)}`}</p>
-      <span>{'FREE SHIPPING'}</span>
+      {<span>{shipping ? 'FREE SHIPPING' : ''}</span>}
       <h2>ADD TO CART</h2>
     </div>
   );
