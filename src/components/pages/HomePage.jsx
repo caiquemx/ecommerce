@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import {getCategories, getProducts, getProductsByCategories} from '../../utils/api';
-import ProductCard from '../cards/ProductCard';
+import ProductCard from '../products/ProductCard';
 import '../../styles/homePage.css';
 
 export default function HomePage() {
@@ -63,8 +63,8 @@ export default function HomePage() {
             <div
               className="categoryContainer"
               id={id}
-              onClick={handleCategoriesClick}
               key={id}
+              onClick={handleCategoriesClick}
             >
               {name}
             </div>
@@ -77,6 +77,7 @@ export default function HomePage() {
             if (p.shipping.free_shipping)
               return (
                 <ProductCard
+                  id={p.id}
                   price={p.price}
                   shipping={p.shipping.free_shipping}
                   thumb={p.thumbnail}
@@ -87,6 +88,7 @@ export default function HomePage() {
           if (!shipping)
             return (
               <ProductCard
+                id={p.id}
                 notFirst={true}
                 price={p.price}
                 shipping={p.shipping.free_shipping}
