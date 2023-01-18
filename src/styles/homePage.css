@@ -10,14 +10,33 @@ main {
   justify-content: center;
   margin-bottom: 50px;
   margin-top: 50px;
+  max-width: 1920px;
 }
 
-.inputSection {
-  margin: auto;
+.header {
+  background-color: antiquewhite;
+  display: grid;
+  row-gap: 10px;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
 }
 
 .searchInput {
+  grid-row: 1;
+  grid-column: 1;
   width: 500px;
+}
+
+.searchButton {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.searchError {
+  color: red;
+  align-self: center;
+  justify-self: center;
 }
 
 .categories {
@@ -27,17 +46,19 @@ main {
   overflow: auto;
 }
 
-.categories label {
-  background-color: #e1e1e1;
+.categoryContainer {
+  background-color: antiquewhite;
   border: 2px solid black;
   border-radius: 50%;
   display: grid;
   grid-row-end: 1;
   height: 100px;
   width: 100px;
+  text-align: center;
+  align-items: center;
 }
 
-.categories label:hover {
+.categoryContainer:hover {
   cursor: pointer;
   background-color: white;
   transition: 0.7s;

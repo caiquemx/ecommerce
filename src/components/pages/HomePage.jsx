@@ -9,7 +9,7 @@ export default function HomePage() {
   const [products, setProducts] = useState([]);
   const [shipping, setShipping] = useState(true);
   const [searchValue, setSearchValue] = useState('');
-
+  const [searchError, setSearchError] = useState(false);
   useEffect(() => {
     const fetch = async () => {
       const data = await getCategories();
@@ -26,14 +26,20 @@ export default function HomePage() {
     setProducts(data);
   };
 
-  const handleSearchClick = async ({}) => {
+  const handleSearchClick = async () => {
     const data = await getProducts(undefined, searchValue);
-    setProducts(data);
+    if (data.length > 0) {
+      setShipping(false);
+      setSearchError(false);
+      setProducts(data);
+    } else {
+      setSearchError(true);
+    }
   };
 
   return (
     <main>
-      <section className="inputSection">
+      <header className="header">
         <input
           className="searchInput"
           id="searchInput"
@@ -43,24 +49,25 @@ export default function HomePage() {
           value={searchValue}
         />
         <button
-          type="submit"
+          className="searchButton"
           onClick={handleSearchClick}
+          type="submit"
         >
           SEARCH
         </button>
-      </section>
+        {searchError && <span className="searchError">Products not found</span>}
+      </header>
       <section className="categoriesSection">
         <div className="categories">
           {categories.map(({id, name}) => (
-            <label htmlFor={id}>
-              <p
-                id={id}
-                onClick={handleCategoriesClick}
-                key={id}
-              >
-                {name}
-              </p>
-            </label>
+            <div
+              className="categoryContainer"
+              id={id}
+              onClick={handleCategoriesClick}
+              key={id}
+            >
+              {name}
+            </div>
           ))}
         </div>
       </section>
