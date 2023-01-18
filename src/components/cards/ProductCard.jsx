@@ -1,9 +1,10 @@
 import React from 'react';
 import '../../styles/productCard.css';
+import '../../styles/notFirstProductCard.css';
 
-export default function ProductCard({title, thumb, price, shipping}) {
+export default function ProductCard({title, thumb, price, shipping, notFirst}) {
   return (
-    <div className="productCard">
+    <div className={notFirst ? 'notFirstProductCard' : 'productCard'}>
       <img
         src={thumb}
         alt={title}

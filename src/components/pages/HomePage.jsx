@@ -8,6 +8,7 @@ export default function HomePage() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [shipping, setShipping] = useState(true);
+  const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
     const fetch = async () => {
@@ -19,33 +20,42 @@ export default function HomePage() {
     fetch();
   }, []);
 
-  const handleClick = async ({target}) => {
+  const handleCategoriesClick = async ({target}) => {
     const data = await getProductsByCategories(target.id);
-    console.log('hello', target.id);
     setShipping(false);
     setProducts(data);
   };
 
-  console.log(shipping);
-  console.log(products);
+  const handleSearchClick = async ({}) => {
+    const data = await getProducts(undefined, searchValue);
+    setProducts(data);
+  };
 
   return (
     <main>
       <section className="inputSection">
         <input
-          type="text"
-          name="searchInput"
-          id="searchInput"
           className="searchInput"
+          id="searchInput"
+          name="searchInput"
+          onChange={({target}) => setSearchValue(target.value)}
+          type="text"
+          value={searchValue}
         />
+        <button
+          type="submit"
+          onClick={handleSearchClick}
+        >
+          SEARCH
+        </button>
       </section>
-      <section id="categoriesSection">
+      <section className="categoriesSection">
         <div className="categories">
           {categories.map(({id, name}) => (
             <label htmlFor={id}>
               <p
                 id={id}
-                onClick={handleClick}
+                onClick={handleCategoriesClick}
                 key={id}
               >
                 {name}
@@ -54,26 +64,27 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-      <section className="freeShippingProductsSection">
+      <section className="ProductsSection">
         {products.map((p) => {
           if (shipping) {
             if (p.shipping.free_shipping)
               return (
                 <ProductCard
+                  price={p.price}
                   shipping={p.shipping.free_shipping}
                   thumb={p.thumbnail}
                   title={p.title}
-                  price={p.price}
                 />
               );
           }
           if (!shipping)
             return (
               <ProductCard
+                notFirst={true}
+                price={p.price}
                 shipping={p.shipping.free_shipping}
                 thumb={p.thumbnail}
                 title={p.title}
-                price={p.price}
               />
             );
         })}
