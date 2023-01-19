@@ -3,7 +3,7 @@ import React from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import '../../styles/productCard.css';
-import '../../styles/notFirstProductCard.css';
+import '../../styles/freeShippingCard.css';
 
 export default function ProductCard({title, thumb, price, shipping, notFirst, id}) {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function ProductCard({title, thumb, price, shipping, notFirst, id
 
   return (
     <div
-      className={notFirst ? 'notFirstProductCard' : 'productCard'}
+      className={notFirst ? 'freeShippingCard' : 'productCard'}
       id={id}
       onClick={handleCardClick}
     >

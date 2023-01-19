@@ -1,4 +1,4 @@
-.notFirstProductCard {
+.freeShippingCard {
   border-left: 2px antiquewhite solid;
   border-right: 2px antiquewhite solid;
   border-radius: 40px;
@@ -12,17 +12,17 @@
   width: 290px;
 }
 
-.notFirstProductCard:hover {
+.freeShippingCard:hover {
   transform: translateY(-5px);
 }
 
-.notFirstProductCard img {
+.freeShippingCard img {
   margin: auto;
   height: 150px;
   width: 150px;
 }
 
-.notFirstProductCard span {
+.freeShippingCard span {
   align-self: center;
   background-color: antiquewhite;
   border-radius: 40px 40px 0px 0px;
@@ -34,15 +34,15 @@
   min-height: 20px;
 }
 
-.notFirstProductCard h3 {
+.freeShippingCard h3 {
   overflow: auto;
 }
 
-.notFirstProductCard h3::-webkit-scrollbar {
+.freeShippingCard h3::-webkit-scrollbar {
   width: 5px;
 }
 
-.notFirstProductCard h3::-webkit-scrollbar-thumb {
+.freeShippingCard h3::-webkit-scrollbar-thumb {
   background-color: black;
 }
 

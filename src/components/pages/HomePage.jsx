@@ -1,15 +1,18 @@
 import React, {useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 import {getCategories, getProducts, getProductsByCategories} from '../../utils/api';
-import ProductCard from '../products/ProductCard';
+import ProductCard from '../cards/ProductCard';
 import '../../styles/homePage.css';
 
 export default function HomePage() {
+  const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [shipping, setShipping] = useState(true);
   const [searchValue, setSearchValue] = useState('');
   const [searchError, setSearchError] = useState(false);
+
   useEffect(() => {
     const fetch = async () => {
       const data = await getCategories();
@@ -54,6 +57,13 @@ export default function HomePage() {
           type="submit"
         >
           SEARCH
+        </button>
+        <button
+          className="cartButton"
+          onClick={() => navigate('/cart')}
+          type="button"
+        >
+          CART
         </button>
         {searchError && <span className="searchError">Products not found</span>}
       </header>

@@ -39,6 +39,11 @@ main {
   justify-self: center;
 }
 
+.cartButton {
+  grid-row: 1;
+  margin-left: 10px;
+}
+
 .categories {
   display: grid;
   gap: 10px;
