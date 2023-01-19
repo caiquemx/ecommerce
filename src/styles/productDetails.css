@@ -27,11 +27,28 @@
 .productInfo {
   align-self: stretch;
   display: grid;
-
   gap: 5px;
   grid-area: 1 / 2 / 2 / 2;
   height: auto;
   width: 250px;
+}
+
+.productTitle {
+  max-height: 125px;
+  overflow: hidden;
+}
+
+.productTitle::-webkit-scrollbar {
+  width: 5px;
+}
+
+.productTitle::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+.productTitle:hover {
+  background-color: aliceblue;
+  overflow: auto;
 }
 
 .oldPrice {
@@ -52,10 +69,14 @@
 }
 
 .addToCart {
-  color: white;
-  background-color: green;
-  border: none;
+  background-color: #11ff09;
+  border: 1px solid black;
   border-radius: 10px;
+  color: black;
+}
+
+.addToCart:hover {
+  background-color: #21b110;
 }
 
 .secondSectionPD {

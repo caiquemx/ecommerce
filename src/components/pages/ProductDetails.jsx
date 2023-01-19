@@ -18,6 +18,26 @@ export default function ProductDetails(props) {
     fetch();
   }, []);
 
+  const handleButtonClick = ({target}) => {
+    target.innerHTML = '✔️';
+    const productToCart = {
+      id,
+      title: details.title,
+      oldPrice: details.price.toFixed(2),
+      price: (details.price - details.price * 0.1).toFixed(2),
+      availability: details.available_quantity,
+      thumb: details.thumbnail,
+    };
+
+    const innetText = () => {
+      return (target.innerHTML = 'ADD TO CART');
+    };
+
+    setTimeout(innetText, 1000);
+
+    localStorage.setItem(id, JSON.stringify(productToCart));
+  };
+
   // const handleButtonClick = ({target: {id}}) => {
   //   if (id === 'minus') {
   //     if (itemQuantity == 0) return;
@@ -44,12 +64,18 @@ export default function ProductDetails(props) {
               <p className="productAvailability">{`AVAILABLE: ${details.available_quantity}`}</p>
             </div>
             <div className="productInfo">
-              <h1 className="producttTitle">{details.title}</h1>
+              <h1 className="productTitle">{details.title}</h1>
               <p className="oldPrice">{`R$ ${details.price.toFixed(2)}`}</p>
               <p className="detailsPrice">{`R$ ${(details.price - details.price * 0.1).toFixed(
                 2
               )}`}</p>
-              <button className="addToCart">ADD TO CART</button>
+              <button
+                className="addToCart"
+                onClick={handleButtonClick}
+                disabled={details.available_quantity <= 0 && true}
+              >
+                ADD TO CART
+              </button>
             </div>
             {/* <div className="itemsQuantity">
               <button
