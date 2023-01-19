@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: grid;
+  gap: 150px;
+  grid-row-end: 3;
+  justify-content: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  max-width: 1920px;
+}
+
+.header {
+  background-color: antiquewhite;
+  display: grid;
+  row-gap: 10px;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.searchInput {
+  grid-row: 1;
+  grid-column: 1;
+  width: 500px;
+}
+
+.searchButton {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.searchError {
+  color: red;
+  align-self: center;
+  justify-self: center;
+}
+
+.categories {
+  display: grid;
+  gap: 10px;
+  max-width: 1130px;
+  overflow: auto;
+}
+
+.categoryContainer {
+  background-color: antiquewhite;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: grid;
+  grid-row-end: 1;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  align-items: center;
+}
+
+.categoryContainer:hover {
+  cursor: pointer;
+  background-color: white;
+  transition: 0.7s;
+}
+
+.categories p {
+  margin: auto;
+  text-align: center;
+}
+
+.ProductsSection {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto auto auto auto;
+  max-width: 1200px;
+  height: auto;
+  overflow: auto;
+}

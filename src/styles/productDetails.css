@@ -1,0 +1,65 @@
+.productDetails {
+  margin: 20px 5px;
+  display: grid;
+  gap: 20px;
+}
+
+.mainSectionPD {
+  column-gap: 10px;
+  display: grid;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  justify-content: center;
+}
+
+.mainSectionPD img {
+  height: 250px;
+  width: 250px;
+}
+
+.productImg {
+  grid-area: 1 / 1 / 2 / 1;
+}
+
+.productAvailability {
+  text-align: center;
+}
+
+.productInfo {
+  align-self: stretch;
+  display: grid;
+
+  gap: 5px;
+  grid-area: 1 / 2 / 2 / 2;
+  height: auto;
+  width: 250px;
+}
+
+.oldPrice {
+  align-self: flex-end;
+  color: red;
+  font-size: 18px;
+  text-align: left;
+  text-decoration: line-through;
+}
+
+.detailsPrice {
+  align-self: flex-start;
+  color: green;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: left;
+  text-decoration: none;
+}
+
+.addToCart {
+  color: white;
+  background-color: green;
+  border: none;
+  border-radius: 10px;
+}
+
+.secondSectionPD {
+  background-color: lightgrey;
+  display: grid;
+  gap: 3px;
+}
