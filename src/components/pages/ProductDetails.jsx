@@ -3,48 +3,54 @@ import {useParams} from 'react-router-dom';
 
 import {getDetails} from '../../utils/api';
 
+import '../../styles/productDetails.css';
+
 export default function ProductDetails(props) {
   const {id} = useParams();
   const [details, setDetails] = useState();
-  const [itemQuantity, setItemQuantity] = useState(0);
+  // const [itemQuantity, setItemQuantity] = useState(0);
 
   useEffect(() => {
     const fetch = async () => {
       const data = await getDetails(id);
-      console.log(data);
       setDetails(data);
     };
     fetch();
   }, []);
 
-  const handleButtonClick = ({target: {id}}) => {
-    if (id === 'minus') {
-      if (itemQuantity == 0) return;
-      setItemQuantity((prev) => prev - 1);
-    }
-    if (id === 'plus') {
-      if (itemQuantity >= 500) return;
-      setItemQuantity((prev) => {
-        return prev + 1;
-      });
-    }
-  };
+  // const handleButtonClick = ({target: {id}}) => {
+  //   if (id === 'minus') {
+  //     if (itemQuantity == 0) return;
+  //     setItemQuantity((prev) => prev - 1);
+  //   }
+  //   if (id === 'plus') {
+  //     if (itemQuantity >= 500) return;
+  //     setItemQuantity((prev) => {
+  //       return prev + 1;
+  //     });
+  //   }
+  // };
 
   return (
-    <div>
+    <div className="productDetails">
       {details && (
         <>
           <section className="mainSectionPD">
-            <h2>{details.title}</h2>
-            <img
-              src={details.thumbnail}
-              alt={details.title}
-            />
-            <p>{`FROM: ${details.price.toFixed(2)} R$`}</p>
-            <p>{`TO: ${(details.price - details.price * 0.1).toFixed(2)} R$`}</p>
-            <p>ADD TO CART</p>
-            <p>KEEP BUYING</p>
-            <p>{`AVAILABLE: ${details.available_quantity}`}</p>
+            <div className="productImg">
+              <img
+                src={details.thumbnail}
+                alt={details.title}
+              />
+              <p className="productAvailability">{`AVAILABLE: ${details.available_quantity}`}</p>
+            </div>
+            <div className="productInfo">
+              <h1 className="producttTitle">{details.title}</h1>
+              <p className="oldPrice">{`R$ ${details.price.toFixed(2)}`}</p>
+              <p className="detailsPrice">{`R$ ${(details.price - details.price * 0.1).toFixed(
+                2
+              )}`}</p>
+              <button className="addToCart">ADD TO CART</button>
+            </div>
             {/* <div className="itemsQuantity">
               <button
                 id="minus"
