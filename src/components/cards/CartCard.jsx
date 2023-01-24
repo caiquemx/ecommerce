@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 
+import '../../styles/cartPage.css';
+
 export default function CartCard({id, title, availability, price, oldPrice, thumb}) {
-  const [itemQuantity, setItemQuantity] = useState(0);
+  const [itemQuantity, setItemQuantity] = useState(1);
 
   const handleButtonClick = ({target}) => {
     if (target.id === 'minus') {
-      if (itemQuantity == 0) return;
+      if (itemQuantity == 1) return;
       setItemQuantity((prev) => prev - 1);
     }
     if (target.id === 'plus') {
@@ -25,12 +27,12 @@ export default function CartCard({id, title, availability, price, oldPrice, thum
         src={thumb}
         alt={title}
       />
-      <h1>{title}</h1>
-      <p>{oldPrice}</p>
-      <p>{price}</p>
-      <p>{`AVAILABLE: ${availability}`}</p>
+      <h1 className="cartProductsTitle">{title}</h1>
+      <p className="cartProductsPrice">{`R$ ${price}`}</p>
+      <p className="itemsAvailibity">{`AVAILABLE: ${availability}`}</p>
       <div className="itemsQuantity">
         <button
+          className="minusButton"
           id="minus"
           onClick={(e) => handleButtonClick(e)}
           type="button"
@@ -40,6 +42,7 @@ export default function CartCard({id, title, availability, price, oldPrice, thum
         </button>
         <p>{itemQuantity}</p>
         <button
+          className="plusButton"
           id="plus"
           onClick={(e) => handleButtonClick(e)}
           type="button"

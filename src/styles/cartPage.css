@@ -1,0 +1,74 @@
+.cartProductsSection {
+  background-color: aliceblue;
+  display: grid;
+  gap: 10px;
+}
+
+.cartProducts {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: grid;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  grid-template-columns: auto auto;
+  max-width: 70%;
+  text-align: left;
+}
+
+.cartProducts img {
+  grid-area: 1 / 1 / 4 / 1;
+  width: 200px;
+}
+
+.cartProductsTitle {
+  align-self: center;
+  grid-area: 1 / 2 / 1 / 2;
+}
+
+.cartProductsPrice {
+  align-self: center;
+  color: green;
+  font-size: 26px;
+  font-weight: 700;
+  grid-area: 2 / 2 / 4 / 2;
+}
+
+.itemsAvailibity {
+  align-self: center;
+  grid-area: 4 / 1 / 4 / 1;
+  text-align: center;
+}
+
+.itemsQuantity {
+  display: grid;
+  grid-area: 4 / 2 / 4 / 2;
+}
+
+.minusButton {
+  border: none;
+  height: 60px;
+  width: 60px;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.minusButton:hover,
+.plusButton:hover {
+  opacity: 0.5;
+}
+
+.itemsQuantity p {
+  align-self: center;
+  text-align: center;
+}
+
+.plusButton {
+  border: none;
+  border-radius: 0px 0px 10px 0px;
+  grid-row: 1;
+  grid-column: 3;
+  height: 60px;
+  justify-self: flex-end;
+  text-align: center;
+  width: 60px;
+}

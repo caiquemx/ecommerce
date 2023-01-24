@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import CartCard from '../cards/CartCard';
 
+import '../../styles/cartPage.css';
+
 export default function CartPage() {
   const [cartProducts, setCartProducts] = useState([]);
-  const [itemQuantity, setItemQuantity] = useState(0);
 
   useEffect(() => {
     const data = Object.values({...localStorage});
@@ -13,21 +14,8 @@ export default function CartPage() {
     });
   }, []);
 
-  const handleButtonClick = ({target: {id}}) => {
-    if (id === 'minus') {
-      if (itemQuantity == 0) return;
-      setItemQuantity((prev) => prev - 1);
-    }
-    if (id === 'plus') {
-      if (itemQuantity >= 500) return;
-      setItemQuantity((prev) => {
-        return prev + 1;
-      });
-    }
-  };
-
   return (
-    <div>
+    <div className="cartProductsSection">
       {cartProducts.map(({id, title, availability, price, oldPrice, thumb}) => {
         return (
           <CartCard
