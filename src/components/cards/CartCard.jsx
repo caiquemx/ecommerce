@@ -28,10 +28,11 @@ export default function CartCard({id, title, availability, price, oldPrice, thum
         alt={title}
       />
       <h1 className="cartProductsTitle">{title}</h1>
-      <p className="cartProductsPrice">{`R$ ${price}`}</p>
+      <p className="cartProductsPrice">{`R$ ${(price * itemQuantity).toFixed(2)}`}</p>
       <p className="itemsAvailibity">{`AVAILABLE: ${availability}`}</p>
       <div className="itemsQuantity">
         <button
+          disabled={itemQuantity <= 1 ? true : false}
           className="minusButton"
           id="minus"
           onClick={(e) => handleButtonClick(e)}
@@ -42,6 +43,7 @@ export default function CartCard({id, title, availability, price, oldPrice, thum
         </button>
         <p>{itemQuantity}</p>
         <button
+          disabled={itemQuantity >= availability ? true : false}
           className="plusButton"
           id="plus"
           onClick={(e) => handleButtonClick(e)}
