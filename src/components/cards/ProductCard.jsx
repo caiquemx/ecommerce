@@ -3,7 +3,7 @@ import React from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import '../../styles/productCard.css';
-import '../../styles/notFirstProductCard.css';
+import '../../styles/freeShippingCard.css';
 
 export default function ProductCard({title, thumb, price, shipping, notFirst, id}) {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function ProductCard({title, thumb, price, shipping, notFirst, id
 
   return (
     <div
-      className={notFirst ? 'notFirstProductCard' : 'productCard'}
+      className={notFirst ? 'freeShippingCard' : 'productCard'}
       id={id}
       onClick={handleCardClick}
     >
@@ -23,8 +23,8 @@ export default function ProductCard({title, thumb, price, shipping, notFirst, id
         alt={title}
       />
       <h3>{title}</h3>
-      <p className="price">{`FROM: ${price.toFixed(2)}`}</p>
-      <p>{`TO: ${(price - price * 0.1).toFixed(2)}`}</p>
+      <p className="oldPrice">{`R$ ${price.toFixed(2)}`}</p>
+      <p className="price">{`R$ ${(price - price * 0.1).toFixed(2)}`}</p>
       {<span>{shipping ? 'FREE SHIPPING' : ''}</span>}
       <h2>ADD TO CART</h2>
     </div>

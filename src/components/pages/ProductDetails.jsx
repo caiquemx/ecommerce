@@ -8,7 +8,6 @@ import '../../styles/productDetails.css';
 export default function ProductDetails(props) {
   const {id} = useParams();
   const [details, setDetails] = useState();
-  // const [itemQuantity, setItemQuantity] = useState(0);
 
   useEffect(() => {
     const fetch = async () => {
@@ -38,19 +37,6 @@ export default function ProductDetails(props) {
     localStorage.setItem(id, JSON.stringify(productToCart));
   };
 
-  // const handleButtonClick = ({target: {id}}) => {
-  //   if (id === 'minus') {
-  //     if (itemQuantity == 0) return;
-  //     setItemQuantity((prev) => prev - 1);
-  //   }
-  //   if (id === 'plus') {
-  //     if (itemQuantity >= 500) return;
-  //     setItemQuantity((prev) => {
-  //       return prev + 1;
-  //     });
-  //   }
-  // };
-
   return (
     <div className="productDetails">
       {details && (
@@ -77,25 +63,6 @@ export default function ProductDetails(props) {
                 ADD TO CART
               </button>
             </div>
-            {/* <div className="itemsQuantity">
-              <button
-                id="minus"
-                onClick={handleButtonClick}
-                type="button"
-              >
-                {' '}
-                -{' '}
-              </button>
-              <p>{itemQuantity}</p>
-              <button
-                id="plus"
-                onClick={handleButtonClick}
-                type="button"
-              >
-                {' '}
-                +{' '}
-              </button>
-            </div> */}
           </section>
           <section className="secondSectionPD">
             {details.attributes.map((a) => {

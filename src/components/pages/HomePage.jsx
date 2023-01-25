@@ -1,62 +1,42 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 
 import {getCategories, getProducts, getProductsByCategories} from '../../utils/api';
-import ProductCard from '../products/ProductCard';
+import ProductCard from '../cards/ProductCard';
 import '../../styles/homePage.css';
+import Header from '../Header';
+import {appContext} from '../../context/appContext';
 
 export default function HomePage() {
+  const {searchValue, setSearchError} = useContext(appContext);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [shipping, setShipping] = useState(true);
-  const [searchValue, setSearchValue] = useState('');
-  const [searchError, setSearchError] = useState(false);
+
   useEffect(() => {
+    setSearchError(false);
     const fetch = async () => {
       const data = await getCategories();
-      const data1 = await getProducts();
+      const data1 = await getProducts(undefined, searchValue);
+      if (data1.length <= 0) {
+        setSearchError(true);
+        data1 = await getProducts();
+      }
       setCategories(data);
       setProducts(data1);
     };
     fetch();
-  }, []);
+  }, [searchValue]);
 
   const handleCategoriesClick = async ({target}) => {
+    setSearchError(false);
     const data = await getProductsByCategories(target.id);
     setShipping(false);
     setProducts(data);
   };
 
-  const handleSearchClick = async () => {
-    const data = await getProducts(undefined, searchValue);
-    if (data.length > 0) {
-      setShipping(false);
-      setSearchError(false);
-      setProducts(data);
-    } else {
-      setSearchError(true);
-    }
-  };
-
   return (
     <main>
-      <header className="header">
-        <input
-          className="searchInput"
-          id="searchInput"
-          name="searchInput"
-          onChange={({target}) => setSearchValue(target.value)}
-          type="text"
-          value={searchValue}
-        />
-        <button
-          className="searchButton"
-          onClick={handleSearchClick}
-          type="submit"
-        >
-          SEARCH
-        </button>
-        {searchError && <span className="searchError">Products not found</span>}
-      </header>
+      <Header />
       <section className="categoriesSection">
         <div className="categories">
           {categories.map(({id, name}) => (

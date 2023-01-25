@@ -5,6 +5,7 @@
 
 main {
   display: grid;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   gap: 150px;
   grid-row-end: 3;
   justify-content: center;
@@ -13,33 +14,8 @@ main {
   max-width: 1920px;
 }
 
-.header {
-  background-color: antiquewhite;
-  display: grid;
-  row-gap: 10px;
-  justify-content: center;
-  padding: 20px;
-  width: 100%;
-}
-
-.searchInput {
-  grid-row: 1;
-  grid-column: 1;
-  width: 500px;
-}
-
-.searchButton {
-  grid-row: 1;
-  grid-column: 2;
-}
-
-.searchError {
-  color: red;
-  align-self: center;
-  justify-self: center;
-}
-
 .categories {
+  margin-top: 100px;
   display: grid;
   gap: 10px;
   max-width: 1130px;
@@ -47,15 +23,24 @@ main {
 }
 
 .categoryContainer {
-  background-color: antiquewhite;
+  background-color: rgb(232, 242, 138);
   border: 2px solid black;
   border-radius: 50%;
   display: grid;
   grid-row-end: 1;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   text-align: center;
   align-items: center;
+}
+
+.categories::-webkit-scrollbar {
+  height: 10px;
+}
+
+.categories::-webkit-scrollbar-thumb:horizontal {
+  border-radius: 5px;
+  background-color: black;
 }
 
 .categoryContainer:hover {
@@ -76,4 +61,13 @@ main {
   max-width: 1200px;
   height: auto;
   overflow: auto;
+}
+
+.ProductsSection::-webkit-scrollbar {
+  height: 10px;
+}
+
+.ProductsSection::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 5px;
 }
