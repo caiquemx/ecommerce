@@ -14,38 +14,8 @@ main {
   max-width: 1920px;
 }
 
-.header {
-  background-color: rgb(232, 242, 138);
-  display: grid;
-  row-gap: 10px;
-  justify-content: center;
-  padding: 20px;
-  width: 100%;
-}
-
-.searchInput {
-  grid-row: 1;
-  grid-column: 1;
-  width: 500px;
-}
-
-.searchButton {
-  grid-row: 1;
-  grid-column: 2;
-}
-
-.searchError {
-  color: red;
-  align-self: center;
-  justify-self: center;
-}
-
-.cartButton {
-  grid-row: 1;
-  margin-left: 10px;
-}
-
 .categories {
+  margin-top: 100px;
   display: grid;
   gap: 10px;
   max-width: 1130px;
@@ -65,7 +35,7 @@ main {
 }
 
 .categories::-webkit-scrollbar {
-  height: 5px;
+  height: 10px;
 }
 
 .categories::-webkit-scrollbar-thumb:horizontal {
@@ -94,9 +64,10 @@ main {
 }
 
 .ProductsSection::-webkit-scrollbar {
-  height: 5px;
+  height: 10px;
 }
 
 .ProductsSection::-webkit-scrollbar-thumb {
   background-color: black;
+  border-radius: 5px;
 }

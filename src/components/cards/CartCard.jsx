@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {useContext} from 'react';
-import {cartContext} from '../../context/cartContext';
+import {appContext} from '../../context/appContext';
 
 import '../../styles/cartPage.css';
 
 export default function CartCard({id, title, availability, price, thumb}) {
-  const {setTotalPrice} = useContext(cartContext);
+  const {setTotalPrice} = useContext(appContext);
   const [itemQuantity, setItemQuantity] = useState(1);
 
   const handleButtonClick = ({target}) => {

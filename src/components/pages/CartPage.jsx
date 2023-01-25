@@ -1,11 +1,12 @@
 import React, {useEffect, useState, useContext} from 'react';
 import CartCard from '../cards/CartCard';
-import {cartContext} from '../../context/cartContext';
+import {appContext} from '../../context/appContext';
 
 import '../../styles/cartPage.css';
+import Header from '../Header.jsx';
 
 export default function CartPage() {
-  const {totalPrice, setTotalPrice} = useContext(cartContext);
+  const {totalPrice, setTotalPrice} = useContext(appContext);
   const [cartProducts, setCartProducts] = useState([]);
 
   useEffect(() => {
@@ -21,6 +22,7 @@ export default function CartPage() {
 
   return (
     <section className="cartSection">
+      <Header />
       <div className="cartProductsSection">
         {cartProducts.map(({id, title, availability, price, oldPrice, thumb}) => {
           return (
