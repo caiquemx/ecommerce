@@ -5,7 +5,8 @@
   
 # Ecommerce Project
   This is a generic project developed using REACT and an e-commerce API from MERCADO LIVRE (https://developers.mercadolivre.com.br/pt_br/itens-e-buscas).
-  Despite of using an pt-br API, i wrote the entire project in english such as this README, so you can see how my english is.
+  
+  Despite of using a pt-br API, i wrote the entire project in english such as this README, so you can see how my english is.
   
 # Lessons Learned
 
