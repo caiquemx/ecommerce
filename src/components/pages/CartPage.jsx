@@ -1,11 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import CartCard from '../cards/CartCard';
+import {cartContext} from '../../context/cartContext';
 
 import '../../styles/cartPage.css';
 
 export default function CartPage() {
+  const {totalPrice, setTotalPrice} = useContext(cartContext);
   const [cartProducts, setCartProducts] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     setTotalPrice(0);

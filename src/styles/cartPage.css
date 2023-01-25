@@ -11,6 +11,7 @@ body {
 }
 
 .cartProductsSection {
+  z-index: 1;
   display: grid;
   gap: 10px;
   grid-column: 1;
@@ -93,10 +94,12 @@ body {
 }
 
 .paymentContainer {
+  z-index: 0;
   display: grid;
   justify-self: center;
-  width: 100%;
   height: 400px;
+  position: fixed;
+  width: 100%;
 }
 
 .totalPrice {
@@ -107,14 +110,15 @@ body {
 }
 
 .buyButton {
-  align-self: center;
+  justify-self: center;
   background-color: green;
   border: none;
   border-radius: 10px;
   color: white;
   font-weight: 700;
+  height: 50px;
   padding: 10px;
-  width: 100%;
+  width: 100px;
 }
 
 .buyButton:hover {

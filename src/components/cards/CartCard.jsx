@@ -1,20 +1,23 @@
 import React, {useState} from 'react';
+import {useContext} from 'react';
+import {cartContext} from '../../context/cartContext';
 
 import '../../styles/cartPage.css';
 
-export default function CartCard({id, title, availability, price, oldPrice, thumb}) {
+export default function CartCard({id, title, availability, price, thumb}) {
+  const {setTotalPrice} = useContext(cartContext);
   const [itemQuantity, setItemQuantity] = useState(1);
 
   const handleButtonClick = ({target}) => {
     if (target.id === 'minus') {
       if (itemQuantity == 1) return;
       setItemQuantity((prev) => prev - 1);
+      setTotalPrice((prev) => (Number(prev) - Number(price)).toFixed(2));
     }
     if (target.id === 'plus') {
       if (itemQuantity >= availability) return;
-      setItemQuantity((prev) => {
-        return prev + 1;
-      });
+      setItemQuantity((prev) => prev + 1);
+      setTotalPrice((prev) => (Number(prev) + Number(price)).toFixed(2));
     }
   };
 
