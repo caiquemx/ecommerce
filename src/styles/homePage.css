@@ -5,6 +5,7 @@
 
 main {
   display: grid;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   gap: 150px;
   grid-row-end: 3;
   justify-content: center;
@@ -14,7 +15,7 @@ main {
 }
 
 .header {
-  background-color: antiquewhite;
+  background-color: rgb(232, 242, 138);
   display: grid;
   row-gap: 10px;
   justify-content: center;
@@ -52,15 +53,24 @@ main {
 }
 
 .categoryContainer {
-  background-color: antiquewhite;
+  background-color: rgb(232, 242, 138);
   border: 2px solid black;
   border-radius: 50%;
   display: grid;
   grid-row-end: 1;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   text-align: center;
   align-items: center;
+}
+
+.categories::-webkit-scrollbar {
+  height: 5px;
+}
+
+.categories::-webkit-scrollbar-thumb:horizontal {
+  border-radius: 5px;
+  background-color: black;
 }
 
 .categoryContainer:hover {
@@ -81,4 +91,12 @@ main {
   max-width: 1200px;
   height: auto;
   overflow: auto;
+}
+
+.ProductsSection::-webkit-scrollbar {
+  height: 5px;
+}
+
+.ProductsSection::-webkit-scrollbar-thumb {
+  background-color: black;
 }

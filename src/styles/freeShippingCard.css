@@ -1,6 +1,6 @@
 .freeShippingCard {
-  border-left: 2px antiquewhite solid;
-  border-right: 2px antiquewhite solid;
+  border-left: 2px rgb(232, 242, 138) solid;
+  border-right: 2px rgb(232, 242, 138) solid;
   border-radius: 40px;
   display: grid;
   font-size: 14px;
@@ -24,7 +24,7 @@
 
 .freeShippingCard span {
   align-self: center;
-  background-color: antiquewhite;
+  background-color: rgb(232, 242, 138);
   border-radius: 40px 40px 0px 0px;
   font-size: 16px;
   grid-row: 1;
@@ -46,14 +46,14 @@
   background-color: black;
 }
 
-.notFirstProductCard h2 {
-  background-color: antiquewhite;
+.freeShippingCard h2 {
+  background-color: rgb(232, 242, 138);
   border-radius: 0 0 40px 40px;
   padding: 20px;
   position: relative;
   text-align: center;
 }
 
-.notFirstProductCard h2:hover {
+.freeShippingCard h2:hover {
   cursor: pointer;
 }
